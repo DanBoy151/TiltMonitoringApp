@@ -1,29 +1,32 @@
 package beer;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 public class Beer {
 
-    private final long beerID;
+    private long beerID;
     private final String name;
-    private final long recipeID;
+    private long recipeID;
     private final Date startDate;
-    private final BigDecimal oG;
-    private final BigDecimal fG;
+    private final double oG;
+    private final double fG;
 
     public Beer(long beerID, String name, long recipeID,
-                Date startDate, BigDecimal oG, BigDecimal fG){
+                Date startDate, double d, double e){
         this.beerID = beerID;
         this.name = name;
         this.recipeID = recipeID;
         this.startDate = startDate;
-        this.oG = oG;
-        this.fG = fG;
+        this.oG = d;
+        this.fG = e;
     }
 
     public long getBeerID(){
         return beerID;
+    }
+
+    public void setBeerID(long newBeerID){
+        beerID = newBeerID;
     }
 
     public String getName(){
@@ -34,15 +37,19 @@ public class Beer {
         return recipeID;
     }
 
+    public void setRecipeID(long newRecipeID){
+        recipeID = newRecipeID;
+    }
+
     public Date getStartDate(){
         return startDate;
     }
 
-    public BigDecimal getOG(){
+    public double getOG(){
         return oG;
     }
 
-    public BigDecimal getFG(){
+    public double getFG(){
         return fG;
     }
 
