@@ -2,32 +2,37 @@ package api.components.beer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.*;
 
 @RestController
+@RequestMapping("/beer")
 public class BeerController {
 
     @Autowired
     private BeerService beerService;
 
-    @GetMapping("/beer")
-    public @ResponseBody Beer getBeer(@PathVariable long id){
+    @GetMapping("/{id}")
+    public @ResponseBody Beer getBeer(@PathVariable("id") long id){
         return beerService.retrieveBeer(id);
     }
 
     //Create New Beer
-    @PostMapping("/beer")
-    public boolean newBeer(@RequestBody Beer newBeer){
-        return beerService.createBeer(newBeer);
+    @PostMapping()
+    @ResponseStatus(HttpStatus.CREATED)
+    public void newBeer(@RequestBody Beer newBeer){
+        beerService.createBeer(newBeer);
     }
 
     //Update a Specific Beer
-   @PutMapping("/beer")
-    public boolean putBeer(@RequestParam(value = "id") long id){
-        return true;
+   @PutMapping("/{id}}")
+   @ResponseStatus(HttpStatus.OK)
+    public void putBeer(@PathVariable("id") long id, @RequestBody Beer updateBeer){
+
     }
 
-    @DeleteMapping("/beer")
-    public void deleteBeer(@RequestParam(value = "id") long id){
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteBeer(@PathVariable("id") long id){
 
     }
 
