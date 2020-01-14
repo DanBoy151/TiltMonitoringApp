@@ -1,4 +1,4 @@
-package beer;
+package api.components.beer;
 
 import java.util.*;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ public class BeerController {
     private final AtomicLong recipeID = new AtomicLong();
 
     @GetMapping("/beer")
-    public Beer getBeer(@RequestParam(value = "id") long id){
+    public @ResponseBody Beer getBeer(@PathVariable long id){
         return beerList.get((int) id);
     }
 

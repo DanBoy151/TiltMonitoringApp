@@ -1,4 +1,4 @@
-package beer;
+package api.components.beer;
 
 import java.util.Date;
 
