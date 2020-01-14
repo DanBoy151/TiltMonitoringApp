@@ -1,41 +1,29 @@
 package api.components.beer;
 
-import java.util.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 public class BeerController {
 
-    private ArrayList<Beer> beerList = new ArrayList<Beer>();
-    private final AtomicLong beerID = new AtomicLong();
-    private final AtomicLong recipeID = new AtomicLong();
+    @Autowired
+    private BeerService beerService;
 
     @GetMapping("/beer")
     public @ResponseBody Beer getBeer(@PathVariable long id){
-        return beerList.get((int) id);
-    }
-
-    @GetMapping("/beer")
-    public Beer getBeers(){
-        return null;
+        return beerService.retrieveBeer(id);
     }
 
     //Create New Beer
     @PostMapping("/beer")
-    public Beer newBeer(@RequestBody Beer newBeer){
-        newBeer.setBeerID(beerID.incrementAndGet());
-        newBeer.setRecipeID(recipeID.incrementAndGet());
-
-        beerList.add(newBeer);
-
-        return newBeer;
+    public boolean newBeer(@RequestBody Beer newBeer){
+        return beerService.createBeer(newBeer);
     }
 
     //Update a Specific Beer
    @PutMapping("/beer")
-    public Beer putBeer(@RequestParam(value = "id") long id){
-        return null;
+    public boolean putBeer(@RequestParam(value = "id") long id){
+        return true;
     }
 
     @DeleteMapping("/beer")
