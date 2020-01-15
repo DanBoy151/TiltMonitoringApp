@@ -1,4 +1,4 @@
-package com.api.components.hello;
+package com.api.model;
 
 public class Greeting {
 

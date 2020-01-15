@@ -1,37 +1,44 @@
-package com.api.components.beer;
-import java.util.concurrent.atomic.AtomicLong;
+package com.api.service;
 
+import java.util.concurrent.atomic.AtomicLong;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import com.api.model.Beer;
+import com.api.repository.BeerRepository;
 
 @Component("BeerService")
 public class BeerService{
-    private ArrayList<Beer> beerList = new ArrayList<Beer>();
     private final AtomicLong beerID = new AtomicLong();
     private final AtomicLong recipeID = new AtomicLong();
+
+    @Autowired
+    private BeerRepository beerRepository;
+
 
     //Create
     public boolean createBeer(Beer beer){
         beer.setBeerID(beerID.incrementAndGet());
         beer.setRecipeID(recipeID.incrementAndGet());
 
-        beerList.add(beer);
+        beerRepository.save(beer);
         return true;
     }
 
     //Retrieve
     public Beer retrieveBeer(long id){
-      return beerList.get((int) id);
+      return beerRepository.findById(id);
     }
 
     //Update
     public boolean updateBeer(Beer beer){
+        beerRepository.save(beer);
         return true;
     }
 
     //Delete
     public boolean deleteBeer(long id){
+        beerRepository.deleteById(id);
         return true;
     }
 
