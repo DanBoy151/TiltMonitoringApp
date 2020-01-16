@@ -12,13 +12,13 @@ public class Beer {
     private final double fG;
 
     public Beer(long beerID, String name, long recipeID,
-                Date startDate, double d, double e){
+                Date startDate, double oG, double fG){
         this.beerID = beerID;
         this.name = name;
         this.recipeID = recipeID;
         this.startDate = startDate;
-        this.oG = d;
-        this.fG = e;
+        this.oG = oG;
+        this.fG = fG;
     }
 
     public long getBeerID(){

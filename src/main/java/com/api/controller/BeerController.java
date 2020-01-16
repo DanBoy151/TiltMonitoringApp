@@ -7,7 +7,7 @@ import com.api.model.Beer;
 import com.api.service.*;
 
 @RestController
-@RequestMapping("/beer")
+@RequestMapping("/beers")
 public class BeerController {
 
     @Autowired
