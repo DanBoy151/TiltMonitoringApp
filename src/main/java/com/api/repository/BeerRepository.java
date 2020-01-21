@@ -4,9 +4,11 @@ import java.util.List;
 
 import com.api.model.Beer;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 
+@EntityScan(basePackageClasses = Beer.class)
 @Component("BeerRepository")
 public interface BeerRepository extends CrudRepository<Beer, Long>{
 	List<Beer> findByBeerName(String BeerName);
