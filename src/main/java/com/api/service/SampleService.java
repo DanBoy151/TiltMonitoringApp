@@ -30,7 +30,7 @@ public class SampleService{
 
     //Retrieve
     public Sample retrieveSample(long sampleID){
-        return sampleRepository.findById(sampleID);
+        return sampleRepository.findBySampleId(sampleID);
     }
 
     //Update
