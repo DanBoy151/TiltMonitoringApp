@@ -2,6 +2,9 @@ package com.api.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Sample {
 
     private long sampleID;
