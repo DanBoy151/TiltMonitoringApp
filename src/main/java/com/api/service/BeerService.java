@@ -27,7 +27,7 @@ public class BeerService{
 
     //Retrieve
     public Beer retrieveBeer(long id){
-      return beerRepository.findByBeerId(id);
+      return beerRepository.findByBeerID(id);
     }
 
     //Update

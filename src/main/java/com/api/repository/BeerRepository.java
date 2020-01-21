@@ -13,5 +13,5 @@ import org.springframework.stereotype.Component;
 public interface BeerRepository extends CrudRepository<Beer, Long>{
 	List<Beer> findByName(String name);
     List<Beer> findAll();
-    Beer findByBeerId(long beerID);
+    Beer findByBeerID(long beerID);
 }

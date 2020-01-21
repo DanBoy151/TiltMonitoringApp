@@ -12,5 +12,5 @@ import com.api.model.Sample;
 @EntityScan(basePackageClasses = Sample.class)
 public interface SampleRepository extends CrudRepository<Sample, Long>{
     List<Sample> findAll();
-    Sample findBySampleId(long sampleID);
+    Sample findBySampleID(long sampleID);
 }
