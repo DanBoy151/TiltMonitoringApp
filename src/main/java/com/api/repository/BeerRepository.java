@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component("BeerRepository")
 @EntityScan(basePackageClasses = Beer.class)
 public interface BeerRepository extends CrudRepository<Beer, Long>{
-	List<Beer> findByBeerName(String BeerName);
+	List<Beer> findByBeerName(String name);
     List<Beer> findAll();
-    Beer findById(long id);
+    Beer findById(long beerID);
 }
