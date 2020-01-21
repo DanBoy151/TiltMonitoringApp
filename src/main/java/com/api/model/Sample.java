@@ -2,11 +2,13 @@ package com.api.model;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Sample {
 
+    @Id
+    @GeneratedValue
     private long sampleID;
     private final Date sampleDate;
     private final boolean brewReady;

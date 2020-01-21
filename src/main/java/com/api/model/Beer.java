@@ -2,11 +2,13 @@ package com.api.model;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
-@Entity
+@Entity()
 public class Beer {
 
+    @Id
+    @GeneratedValue
     private long beerID;
     private final String name;
     private long recipeID;
