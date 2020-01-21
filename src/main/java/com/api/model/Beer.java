@@ -1,7 +1,6 @@
 package com.api.model;
 
 import java.util.Date;
-
 import javax.persistence.*;
 
 @Entity()
@@ -10,14 +9,17 @@ public class Beer {
     @Id
     @GeneratedValue
     private long beerID;
-    private final String name;
+    private String name;
     private long recipeID;
-    private final Date startDate;
-    private final double oG;
-    private final double fG;
+    private Date startDate;
+    private double oG;
+    private double fG;
 
+    public Beer(){}
+    
     public Beer(long beerID, String name, long recipeID,
                 Date startDate, double oG, double fG){
+        super();
         this.beerID = beerID;
         this.name = name;
         this.recipeID = recipeID;
@@ -38,6 +40,10 @@ public class Beer {
         return name;
     }
 
+    public void setName(String newBeerName){
+        name = newBeerName;
+    }
+
     public Long getRecipeID(){
         return recipeID;
     }
@@ -50,12 +56,24 @@ public class Beer {
         return startDate;
     }
 
+    public void setStartDate(Date newStartDate){
+        startDate = newStartDate;
+    }
+
     public double getOG(){
         return oG;
     }
 
+    public void setOG(double newOG){
+        oG = newOG;
+    }
+
     public double getFG(){
         return fG;
+    }
+
+    public void setFG(double newFG){
+        fG = newFG;
     }
 
 }
