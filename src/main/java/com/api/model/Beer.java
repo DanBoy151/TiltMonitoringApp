@@ -15,21 +15,21 @@ public class Beer {
     private long recipeID;
     private Date startDate;
     @Column(precision = 4, scale = 3)
-    private BigDecimal oG;
+    private BigDecimal og;
     @Column(precision = 4, scale = 3)
-    private BigDecimal fG;
+    private BigDecimal fg;
 
     public Beer(){}
     
     public Beer(long beerID, String name, long recipeID,
-                Date startDate, BigDecimal oG, BigDecimal fG){
+                Date startDate, BigDecimal og, BigDecimal fg){
         super();
         this.beerID = beerID;
         this.name = name;
         this.recipeID = recipeID;
         this.startDate = startDate;
-        this.oG = oG;
-        this.fG = fG;
+        this.og = og;
+        this.fg = fg;
     }
 
     public long getBeerID(){
@@ -64,20 +64,20 @@ public class Beer {
         startDate = newStartDate;
     }
 
-    public BigDecimal getOG(){
-        return oG;
+    public BigDecimal getOg(){
+        return og;
     }
 
-    public void setOG(BigDecimal newOG){
-        oG = newOG;
+    public void setOg(BigDecimal newOg){
+        og = newOg;
     }
 
-    public BigDecimal getFG(){
-        return fG;
+    public BigDecimal getFg(){
+        return fg;
     }
 
-    public void setFG(BigDecimal newFG){
-        fG = newFG;
+    public void setFg(BigDecimal newFg){
+        fg = newFg;
     }
 
 }
