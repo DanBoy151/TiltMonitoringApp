@@ -27,10 +27,10 @@ public class BeerController {
     }
 
     //Update a Specific Beer
-   @PutMapping("/{id}}")
+   @PutMapping("/{id}")
    @ResponseStatus(HttpStatus.OK)
     public void putBeer(@PathVariable("id") long id, @RequestBody Beer updateBeer){
-
+        beerService.updateBeer(updateBeer);
     }
 
     //Delete a Beer by ID
