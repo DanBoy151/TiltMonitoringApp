@@ -3,6 +3,8 @@ package com.api.model;
 import java.util.Date;
 import javax.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity()
 public class Beer {
 
@@ -12,13 +14,13 @@ public class Beer {
     private String name;
     private long recipeID;
     private Date startDate;
-    private double oG;
-    private double fG;
+    private BigDecimal oG;
+    private BigDecimal fG;
 
     public Beer(){}
     
     public Beer(long beerID, String name, long recipeID,
-                Date startDate, double oG, double fG){
+                Date startDate, BigDecimal oG, BigDecimal fG){
         super();
         this.beerID = beerID;
         this.name = name;
@@ -60,19 +62,19 @@ public class Beer {
         startDate = newStartDate;
     }
 
-    public double getOG(){
+    public BigDecimal getOG(){
         return oG;
     }
 
-    public void setOG(double newOG){
+    public void setOG(BigDecimal newOG){
         oG = newOG;
     }
 
-    public double getFG(){
+    public BigDecimal getFG(){
         return fG;
     }
 
-    public void setFG(double newFG){
+    public void setFG(BigDecimal newFG){
         fG = newFG;
     }
 

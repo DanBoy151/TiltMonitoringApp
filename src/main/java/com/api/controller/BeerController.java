@@ -13,6 +13,7 @@ public class BeerController {
     @Autowired
     private BeerService beerService;
 
+    //Get Beer by ID
     @GetMapping("/{id}")
     public @ResponseBody Beer getBeer(@PathVariable("id") long id){
         return beerService.retrieveBeer(id);
@@ -32,6 +33,7 @@ public class BeerController {
 
     }
 
+    //Delete a Beer by ID
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteBeer(@PathVariable("id") long id){
