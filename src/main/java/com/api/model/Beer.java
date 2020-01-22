@@ -20,7 +20,7 @@ public class Beer {
     @Column(precision = 4, scale = 3)
     private BigDecimal fg;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "recipeID")
     @RestResource(path = "beerRecipe", rel="recipe")
     private Recipe recipe;
