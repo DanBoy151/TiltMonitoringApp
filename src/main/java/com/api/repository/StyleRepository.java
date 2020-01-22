@@ -12,5 +12,5 @@ import org.springframework.stereotype.Component;
 @EntityScan(basePackageClasses = Style.class)
 public interface StyleRepository extends CrudRepository<Style, Long>{
     List<Style> findAll();
-    Style findByRecipeID(long styleID);
+    Style findByStyleID(long styleID);
 }
