@@ -37,7 +37,7 @@ public class BeerController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteBeer(@PathVariable("id") long id){
-
+        beerService.deleteBeer(id);
     }
 
 }

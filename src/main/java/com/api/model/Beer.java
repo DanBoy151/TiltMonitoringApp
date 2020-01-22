@@ -4,6 +4,8 @@ import java.util.Date;
 import javax.persistence.*;
 
 import java.math.BigDecimal;
+import org.springframework.data.rest.core.annotation.*;
+
 
 @Entity()
 public class Beer {
@@ -12,21 +14,25 @@ public class Beer {
     @GeneratedValue
     private long beerID;
     private String name;
-    private long recipeID;
     private Date startDate;
     @Column(precision = 4, scale = 3)
     private BigDecimal og;
     @Column(precision = 4, scale = 3)
     private BigDecimal fg;
 
+    @OneToOne
+    @JoinColumn(name = "recipeID")
+    @RestResource(path = "beerRecipe", rel="recipe")
+    private Recipe recipe;
+
+
     public Beer(){}
     
-    public Beer(long beerID, String name, long recipeID,
+    public Beer(long beerID, String name,
                 Date startDate, BigDecimal og, BigDecimal fg){
         super();
         this.beerID = beerID;
         this.name = name;
-        this.recipeID = recipeID;
         this.startDate = startDate;
         this.og = og;
         this.fg = fg;
@@ -48,12 +54,12 @@ public class Beer {
         name = newBeerName;
     }
 
-    public Long getRecipeID(){
-        return recipeID;
+    public Recipe getRecipe(){
+        return recipe;
     }
 
-    public void setRecipeID(long newRecipeID){
-        recipeID = newRecipeID;
+    public void setRecipe(Recipe newRecipe){
+        recipe = newRecipe;
     }
 
     public Date getStartDate(){
