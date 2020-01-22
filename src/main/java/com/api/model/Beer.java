@@ -14,7 +14,9 @@ public class Beer {
     private String name;
     private long recipeID;
     private Date startDate;
+    @Column(precision = 4, scale = 3)
     private BigDecimal oG;
+    @Column(precision = 4, scale = 3)
     private BigDecimal fG;
 
     public Beer(){}
