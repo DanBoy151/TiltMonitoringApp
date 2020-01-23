@@ -1,8 +1,6 @@
 package com.api.model;
 
 import java.util.Date;
-import java.util.List;
-
 import javax.persistence.*;
 
 import java.math.BigDecimal;
@@ -26,9 +24,6 @@ public class Beer {
     @JoinColumn(name = "recipeID")
     @RestResource(path = "beerRecipe", rel="recipe")
     private Recipe recipe;
-
-    @OneToMany(mappedBy = "beer", cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Sample> samples;
 
     public Beer(){}
     
