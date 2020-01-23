@@ -3,6 +3,9 @@ package com.api.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.*;
+
+import java.util.List;
+
 import com.api.model.Beer;
 import com.api.service.*;
 
@@ -12,6 +15,12 @@ public class BeerController {
 
     @Autowired
     private BeerService beerService;
+
+    //Get Beer by ID
+    @GetMapping("")
+    public @ResponseBody List<Beer> getBeers(){
+        return beerService.retrieveBeers();
+    }
 
     //Get Beer by ID
     @GetMapping("/{id}")
