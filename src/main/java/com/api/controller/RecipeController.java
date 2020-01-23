@@ -19,13 +19,6 @@ public class RecipeController {
         return recipeService.retrieveRecipe(id);
     }
 
-    //Create New Recipe
-    @PostMapping()
-    @ResponseStatus(HttpStatus.CREATED)
-    public void newBeer(@RequestBody Recipe newRecipe){
-        recipeService.createRecipe(newRecipe);
-    }
-
     //Update a Specific Recipe
    @PutMapping("/{id}")
    @ResponseStatus(HttpStatus.OK)

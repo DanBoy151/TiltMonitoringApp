@@ -10,10 +10,16 @@ public class Sample {
     @Id
     @GeneratedValue
     private long sampleID;
-    private final Date sampleDate;
-    private final boolean brewReady;
+    private Date sampleDate;
+    private boolean brewReady;
     private long noteID;
     private long imageID;
+
+    @ManyToOne()
+    @JoinColumn(name="beerID")
+    private Beer beer;
+
+    public Sample(){}
 
     public Sample(long sampleID, Date sampleDate, boolean brewReady,
                   long noteID, long imageID){
@@ -37,10 +43,17 @@ public class Sample {
         return sampleDate;
     }
 
+    public void setSampleDate(Date newSampleDate){
+        sampleDate = newSampleDate;
+    }
+
     public boolean getBrewReady(){
         return brewReady;
     }
 
+    public void setBrewReady(Boolean newBrewReady){
+        brewReady = newBrewReady;
+    }
     public long getNoteID(){
         return noteID;
     }

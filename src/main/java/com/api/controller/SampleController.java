@@ -19,7 +19,7 @@ public class SampleController {
         return sampleService.retrieveSample(id);
     }
 
-    //Create New Beer
+    //Create New Sample
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public void newSample (@RequestBody Sample newSample){
