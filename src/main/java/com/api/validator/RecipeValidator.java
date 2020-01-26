@@ -1,13 +1,13 @@
 package com.api.validator;
 
-import org.springframework.stereotype.Component;
+//import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import com.api.model.Recipe;
 import com.common.CommonValidations;
 
-@Component("beforeCreateRecipeValidator")
+//@Component("beforeCreateRecipeValidator")
 public class RecipeValidator implements Validator, CommonValidations {
 
     @Override

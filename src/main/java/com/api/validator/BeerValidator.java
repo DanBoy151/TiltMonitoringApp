@@ -1,6 +1,6 @@
 package com.api.validator;
 
-import org.springframework.stereotype.Component;
+//import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -8,7 +8,7 @@ import com.api.model.Beer;
 import com.api.model.Recipe;
 import com.common.CommonValidations;
 
-@Component("beforeCreateBeerValidator")
+//@Component("beforeCreateBeerValidator")
 public class BeerValidator implements Validator, CommonValidations {
 
     @Override
