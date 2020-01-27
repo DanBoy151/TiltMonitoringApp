@@ -12,5 +12,5 @@ import org.springframework.stereotype.Component;
 @EntityScan(basePackageClasses = Review.class)
 public interface ReviewRepository extends CrudRepository<Review, Long>{
     List<Review> findAll();
-    Review findByNoteID(long reviewID);
+    Review findByReviewID(long reviewID);
 }
