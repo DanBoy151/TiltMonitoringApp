@@ -13,6 +13,17 @@ public class Note {
     private String noteText;
     private Date noteDate;
 
+    @OneToOne(mappedBy = "beerNote")
+    private Beer beer;
+
+    @OneToOne(mappedBy = "sampleNote")
+    private Beer sample;
+
+    @OneToOne(mappedBy = "reviewNote")
+    private Review review;
+
+    @OneToOne(mappedBy = "bottleNote")
+    private Bottle bottle;
 
     public Note(){}
 

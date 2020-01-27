@@ -25,6 +25,11 @@ public class Beer {
     @RestResource(path = "beerRecipe", rel="recipe")
     private Recipe recipe;
 
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "noteID")
+    @RestResource(path = "beerNote", rel="beerNote")
+    private Note note;
+
     public Beer(){}
     
     public Beer(long beerID, String name,

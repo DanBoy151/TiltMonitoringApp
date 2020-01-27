@@ -2,6 +2,8 @@ package com.api.model;
 
 import javax.persistence.*;
 
+import org.springframework.data.rest.core.annotation.*;
+
 @Entity()
 public class Recipe {
 
@@ -14,6 +16,11 @@ public class Recipe {
 
     @OneToOne(mappedBy = "recipe")
     private Beer beer;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "styleID")
+    @RestResource(path = "recipeStyle", rel="style")
+    private Style style;
 
     public Recipe(){}
 
