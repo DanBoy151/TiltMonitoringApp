@@ -8,6 +8,8 @@ import org.springframework.data.rest.core.annotation.*;
 @Entity
 public class Sample {
 
+    @Id
+    @GeneratedValue
     private long sampleID;
     private Date sampleDate;
     private boolean brewReady;
