@@ -9,7 +9,6 @@ public class Recipe {
     @Id
     @GeneratedValue
     private long recipeID;
-    private long styleID;
     private String method;
     private String ingredients;
 
@@ -28,14 +27,6 @@ public class Recipe {
 
     public long getRecipeID(){
         return recipeID;    
-    }
-
-    public void setStyleID(long newStyleID){
-        styleID = newStyleID;
-    }
-
-    public long getStyleID(){
-        return styleID;
     }
 
     public void setMethod(String newMethod){
