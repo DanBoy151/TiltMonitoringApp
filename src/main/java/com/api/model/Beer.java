@@ -4,8 +4,6 @@ import java.util.Date;
 import javax.persistence.*;
 
 import java.math.BigDecimal;
-import org.springframework.data.rest.core.annotation.*;
-
 
 @Entity()
 public class Beer {
@@ -22,12 +20,10 @@ public class Beer {
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "recipeID")
-    @RestResource(path = "beerRecipe", rel="recipe")
     private Recipe recipe;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "noteID")
-    @RestResource(path = "beerNote", rel="beerNote")
     private Note note;
 
     public Beer(){}

@@ -10,13 +10,13 @@ public class Image {
     private long imageID;
     private byte[] imageData;
 
-    @OneToOne(mappedBy = "sampleImage")
-    private Beer sample;
+    @OneToOne(mappedBy = "image")
+    private Sample sample;
 
-    @OneToOne(mappedBy = "reviewImage")
+    @OneToOne(mappedBy = "image")
     private Review review;
 
-    @OneToOne(mappedBy = "bottleImage")
+    @OneToOne(mappedBy = "image")
     private Bottle bottle;
 
 

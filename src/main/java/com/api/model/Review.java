@@ -2,7 +2,6 @@ package com.api.model;
 
 import java.util.Date;
 import javax.persistence.*;
-import org.springframework.data.rest.core.annotation.*;
 
 @Entity()
 public class Review {
@@ -15,12 +14,10 @@ public class Review {
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "noteID")
-    @RestResource(path = "reviewNote", rel="reviewNote")
     private Note note;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "imageID")
-    @RestResource(path = "reviewImage", rel="reviewImage")
     private Image image;
 
     public Review(){}

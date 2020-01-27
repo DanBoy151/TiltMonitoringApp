@@ -3,7 +3,6 @@ package com.api.model;
 import java.util.Date;
 
 import javax.persistence.*;
-import org.springframework.data.rest.core.annotation.*;
 
 @Entity()
 public class Bottle {
@@ -17,12 +16,10 @@ public class Bottle {
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "noteID")
-    @RestResource(path = "bottleNote", rel="bottleNote")
-    private Bottle bottle;
+    private Note note;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "imageID")
-    @RestResource(path = "bottleImage", rel="bottleImage")
     private Image image;
 
     public Bottle(){}
