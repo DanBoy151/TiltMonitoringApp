@@ -20,6 +20,14 @@ public class StyleService {
         return true;
     }
 
+    //Create
+    public boolean createBulkStyle(List<Style> listOfStyles){
+        for (Style newStyle: listOfStyles) {
+            styleRepository.save(newStyle);
+        }
+        return true;
+    }
+
     //Retrieve
     public Style retrieveStyle(long id){
         return styleRepository.findByStyleID(id);
