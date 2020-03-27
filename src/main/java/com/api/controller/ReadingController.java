@@ -14,11 +14,18 @@ public class ReadingController {
     @Autowired
     private ReadingService readingService;
 
-    //Get Hydrometer by ID
+    //Get all Readings for a Beer
     @GetMapping("/{beerid}")
     public @ResponseBody
     List<Reading> getReadings(@PathVariable("beerid") long beerId){
         return readingService.RetrieveReadings(beerId);
+    }
+
+    //Get the most recent reading for a particular beer
+    @GetMapping("/{beerid}/latest")
+    public @ResponseBody
+    Reading getLatestReading(@PathVariable("beerid") long beerId){
+        return readingService.RetrieveLatestReading(beerId);
     }
 
     //Create New Reading
@@ -28,7 +35,7 @@ public class ReadingController {
         readingService.createReading(newReading);
     }
 
-    //Update a Specific Hydrometer
+    //Update a Specific Reading
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void updateReading(@PathVariable("id") long id, @RequestBody Reading updateReading){

@@ -10,7 +10,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity()
-public class Reading {
+public class Reading implements Comparable<Reading> {
 
     @Id
     @GeneratedValue
@@ -66,4 +66,12 @@ public class Reading {
     public Date getDate() {return  date;}
 
     public void setDate(Date newDate){date = newDate;}
+
+    @Override
+    public int compareTo(Reading r) {
+        if (getDate() == null || r.getDate() == null) {
+            return 0;
+        }
+        return getDate().compareTo(r.getDate());
+    }
 }

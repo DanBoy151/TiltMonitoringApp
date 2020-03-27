@@ -5,6 +5,7 @@ import com.api.repository.ReadingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.List;
 
 @Component("ReadingService")
@@ -24,6 +25,15 @@ public class ReadingService {
     public List<Reading> RetrieveReadings(long beerID){
         return readingRepository.findByBeerID(beerID);
     }
+
+    public Reading RetrieveLatestReading(long beerID) {
+        List<Reading> readings = readingRepository.findByBeerID(beerID);
+        Collections.reverse(readings);
+
+        Reading latestReading = readings.get(0);
+
+        return latestReading;
+}
 
     //Update
     public boolean updateReading(Reading reading){
