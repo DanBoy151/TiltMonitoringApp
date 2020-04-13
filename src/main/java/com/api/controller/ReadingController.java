@@ -15,6 +15,7 @@ public class ReadingController {
     private ReadingService readingService;
 
     //Get all Readings for a Beer
+    @CrossOrigin
     @GetMapping("/{beerid}")
     public @ResponseBody
     List<Reading> getReadings(@PathVariable("beerid") long beerId){
@@ -22,6 +23,7 @@ public class ReadingController {
     }
 
     //Get the most recent reading for a particular beer
+    @CrossOrigin
     @GetMapping("/{beerid}/latest")
     public @ResponseBody
     Reading getLatestReading(@PathVariable("beerid") long beerId){
@@ -29,6 +31,7 @@ public class ReadingController {
     }
 
     //Create New Reading
+    @CrossOrigin
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public void newReading(@RequestBody Reading newReading){
@@ -36,6 +39,7 @@ public class ReadingController {
     }
 
     //Update a Specific Reading
+    @CrossOrigin
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void updateReading(@PathVariable("id") long id, @RequestBody Reading updateReading){
@@ -43,6 +47,7 @@ public class ReadingController {
     }
 
     //Delete a Hydrometer by ID
+    @CrossOrigin
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteReading(@PathVariable("id") long id){

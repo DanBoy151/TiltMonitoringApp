@@ -17,12 +17,14 @@ public class HydrometerController {
     private HydrometerService hydrometerService;
 
     //Get All Hydrometers
+    @CrossOrigin
     @GetMapping("")
     public @ResponseBody List<Hydrometer> GetAllHydrometers(){
         return hydrometerService.retrieveHydrometers();
     }
 
     //Get Hydrometer by ID
+    @CrossOrigin
     @GetMapping("/{id}")
     public @ResponseBody
     Hydrometer GetHydrometer(@PathVariable("id") long id){
@@ -30,6 +32,7 @@ public class HydrometerController {
     }
 
     //Create New Hydrometer
+    @CrossOrigin
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public void NewHydrometer(@RequestBody Hydrometer newHydrometer){
@@ -37,6 +40,7 @@ public class HydrometerController {
     }
 
     //Update a Specific Hydrometer
+    @CrossOrigin
    @PutMapping("/{id}/start")
    @ResponseStatus(HttpStatus.OK)
     public void StartLogging(@PathVariable("id") long id){
@@ -44,6 +48,7 @@ public class HydrometerController {
     }
 
     //Update a Specific Hydrometer
+    @CrossOrigin
     @PutMapping("/{id}/stop")
     @ResponseStatus(HttpStatus.OK)
     public void StopLogging(@PathVariable("id") long id){
@@ -51,6 +56,7 @@ public class HydrometerController {
     }
 
     //Delete a Hydrometer by ID
+    @CrossOrigin
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteHydrometer(@PathVariable("id") long id){
